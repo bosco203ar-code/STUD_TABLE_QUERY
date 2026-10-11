@@ -1,0 +1,50 @@
+-- ==========================================
+-- SJC STUDENT REGISTRATION SYSTEM
+-- Database and table for XAMPP (MySQL / MariaDB)
+-- ==========================================
+
+CREATE DATABASE IF NOT EXISTS sjc_registration
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_general_ci;
+
+USE sjc_registration;
+
+CREATE TABLE IF NOT EXISTS students (
+
+    -- Registration number (starts from 1001, same as the project)
+    reg_no            INT AUTO_INCREMENT PRIMARY KEY,
+
+    -- Personal Details
+    student_name      VARCHAR(100) NOT NULL,
+    father_name       VARCHAR(100),
+    mother_name       VARCHAR(100),
+    gender            ENUM('Male','Female','Other'),
+    dob               DATE,
+    age               TINYINT UNSIGNED,
+    blood_group       VARCHAR(5),
+    photo             LONGTEXT,
+    religion          VARCHAR(30),
+    community         VARCHAR(20),
+
+    -- Contact Details
+    mobile            CHAR(10),
+    parent_mobile     CHAR(10),
+    email             VARCHAR(100),
+    address           TEXT,
+    state             VARCHAR(50),
+    city              VARCHAR(50),
+    pincode           CHAR(6),
+
+    -- Academic Details
+    admission_number  VARCHAR(30),
+    department        VARCHAR(50),
+    year              VARCHAR(10),
+    semester          TINYINT UNSIGNED,
+    section           CHAR(1),
+    previous_school   VARCHAR(150),
+    percentage        VARCHAR(20),
+
+    -- Record info
+    created_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+) AUTO_INCREMENT = 1001;
